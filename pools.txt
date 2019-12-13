@@ -1,6 +1,6 @@
 /*
 
-  This config file is required for bittube-miner to start automatically without require user input with setup questions.
+  This config file is required for talleo-miner to start automatically without require user input with setup questions.
   Pool & address info here are bypassed by runtime config passed from HiveOS wallet data.
 
 */
@@ -23,7 +23,7 @@
  
 "pool_list" :
 [
-	{"pool_address" : "mining.bit.tube:13333", "wallet_address" : "bxdry9ZcTjGBo6gLdmLNtBUgBkvxHQH9d3zCXV2DKsJi9ueKidHBUhV7ZfJUezxsdndtXVjdeajRy7as8ZdHKKf91vCTzU6VE", "rig_id" : "", "pool_password" : "", "use_nicehash" : false, "use_tls" : false, "tls_fingerprint" : "", "pool_weight" : 1 },
+	{"pool_address" : "pool.talleo.org:3333", "wallet_address" : "TA3fBqg2v7RHppBp2JM4pvFze5yUX8rN3AuH4FpgN6gNBcqgUrS26cTe7s8NVCoJkGUsDm4wmK4Zs2cRfAx8g5r129uRS2zCV+HiveOS", "rig_id" : "", "pool_password" : "", "use_nicehash" : false, "use_tls" : false, "tls_fingerprint" : "", "pool_weight" : 1 },
 ],
 
 /*
@@ -33,5 +33,5 @@
  *
  */
 
-"currency" : "bittube",
+"currency" : "talleo",
 

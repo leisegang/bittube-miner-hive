@@ -9,4 +9,4 @@ conf="-o ${CUSTOM_URL} -u ${CUSTOM_TEMPLATE} ${CUSTOM_USER_CONFIG}"
 [[ -z $CUSTOM_CONFIG_FILENAME ]] && echo -e "${RED}No CUSTOM_CONFIG_FILENAME is set${NOCOLOR}" && return 1
 echo "$conf" > $CUSTOM_CONFIG_FILENAME
 
-#[[ ! -z $CUSTOM_USER_CONFIG ]] && echo ${CUSTOM_USER_CONFIG} > /hive/custom/bittube/amd.txt 
+#[[ ! -z $CUSTOM_USER_CONFIG ]] && echo ${CUSTOM_USER_CONFIG} > /hive/custom/talleo/amd.txt 

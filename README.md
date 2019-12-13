@@ -1,4 +1,4 @@
-# HiveOS Custom Miner Integration
+# HiveOS Custom Miner Integration for Talleo
 
 Tested on [AMD cards only](#notes).
 
@@ -10,13 +10,13 @@ This method is not recommended [(see disclaimer)](#disclaimer), but provided as 
 
 - In HiveOS dashboard create new Wallet
 - Select **Custom** option for miner
-- **Custom miner name**: bittube
-- **Installation URL**: https://github.com/bizlift/bittube-miner-hive/releases/download/v0.1.0/bittube-2.0.0.1.tar.gz
+- **Custom miner name**: talleo
+- **Installation URL**: unknown
 - **Wallet and worker template**: Paste your wallet address here.  On Cryptoknight pool you can also append wallet with a dot and [static diff](https://cryptoknight.cc/ipbc/#getting_started)
 - **Pool URL**: Enter pool address:port (i.e. `mining.bit.tube:15555`)
 - **Extra config arguments**: Optional runtime configs (i.e. `--noAMDCache` or `--noNVIDIA --openCLVendor NVIDIA`)
 - Save wallet.  Set rig to use Custom miner and the new wallet you created
-- After successful run with Hashrate & Results showing up in Hive dashboard, login to miner shell and edit `/hive/custom/bittube/amd.txt` to tweak your AMD card config (i.e. double thread each card, adjust intensity, etc.).  Restart miner for changes to take effect.
+- After successful run with Hashrate & Results showing up in Hive dashboard, login to miner shell and edit `/hive/custom/talleo/amd.txt` to tweak your AMD card config (i.e. double thread each card, adjust intensity, etc.).  Restart miner for changes to take effect.
 
 
 ## Better Option - Compile From Source
@@ -27,21 +27,21 @@ This method is not recommended [(see disclaimer)](#disclaimer), but provided as 
 
 ```
 sudo apt install libmicrohttpd-dev libssl-dev cmake build-essential libhwloc-dev ocl-icd-opencl-dev amdgpu-pro
-mkdir /hive/custom/bittube-git
-cd /hive/custom/bittube-git
-git clone https://github.com/ipbc-dev/bittube-miner.git
-mkdir bittube-miner/build
-cd bittube-miner/build
+mkdir /hive/custom/talleo-git
+cd /hive/custom/talleo-git
+git clone -b talleo https://github.com/mtl1979/xmr-stak.git
+mkdir talleo-miner/build
+cd talleo-miner/build
 cmake .. -DCUDA_ENABLE=OFF -DOpenCL_INCLUDE_DIR=/opt/amdgpu-pro/lib/x86_64-linux-gnu -DOpenCL_LIBRARY=/opt/amdgpu-pro/lib/x86_64-linux-gnu/libOpenCL.so
 make install
-mkdir /hive/custom/bittube
-cp build/bin/* /hive/custom/bittube
+mkdir /hive/custom/talleo
+cp build/bin/* /hive/custom/talleo
 
 ```
-Now that you have a compiled binary, you just need to add the HiveOS [custom files](https://github.com/bizlift/bittube-miner-hive/archive/master.zip).
+Now that you have a compiled binary, you just need to add the HiveOS [custom files](https://github.com/bizlift/talleo-miner-hive/archive/master.zip).
 
-Copy the files to `/hive/custom/bittube`:
-- bittube.conf
+Copy the files to `/hive/custom/talleo`:
+- talleo.conf
 - config.txt
 - cpu.txt
 - expert.json
@@ -65,7 +65,7 @@ The release notes for 2.0.0.1 mention:
 ```
 V4 CUDA PoW still work in progress, in the meantime to mine with NVIDIA cards you need to use OpenCL.
 
-bittube-miner --noNVIDIA --openCLVendor NVIDIA
+talleo-miner --noNVIDIA --openCLVendor NVIDIA
 ```
 
 You can try adding `--noNVIDIA --openCLVendor NVIDIA` to your Hive wallet's *Extra config arguments* field. I have no idea if this will work.
@@ -77,14 +77,14 @@ This is just a quick solution until xmr-stak supports the new TUBE algo.
 
 All binaries have been compiled from source without edits, or copied from the default xmr-stak miner in HiveOS. The tarball in Releases is provided for your convenience.
 
-However, it is rarely a good idea to use binaries from unknown sources and I strongly recommend that you compile the latest BitTube miner yourself and just copy over the h-xxxx.sh files.
+However, it is rarely a good idea to use binaries from unknown sources and I strongly recommend that you compile the latest talleo miner yourself and just copy over the h-xxxx.sh files.
 
 
 ---
 
-# BitTube-Miner
+# talleo-Miner
 
-[BitTube](https://coin.bit.tube/)
+[talleo](https://coin.bit.tube/)
 
 Based on XMR-Stak by fireice_uk and psychocrypt
 and Wolf AMD backend
@@ -110,5 +110,5 @@ and Wolf AMD backend
 
 ## Download
 
-You can find the latest releases and precompiled binaries on GitHub under [Releases](https://github.com/ipbc-dev/bittube-miner/releases).
+You can find the latest releases and precompiled binaries on GitHub under [Releases](https://github.com/ipbc-dev/talleo-miner/releases).
 
